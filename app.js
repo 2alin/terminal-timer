@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const { spawn } = require("child_process");
 const figlet = require("figlet");
 const chalk = require("chalk");
 const cliArgsHandler = require("./cli");
@@ -41,9 +42,11 @@ const print = () =>
 			console.clear();
 			console.log(color ? chalk[color](figSecond) : figSecond);
 
-            currentSec++;
+			currentSec++;
 			// Check time after printing figSecond and then incrementing it
 			if (currentSec > seconds) {
+				// notify the user that the time is over
+				spawn("notify-send", ["-t", "3000", `${seconds} seconds over`]);
 				process.exit();
 			}
 		}
