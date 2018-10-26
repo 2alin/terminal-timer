@@ -19,6 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.1",
+    "configstore": "^4.0.0",
     "figlet": "^1.2.1"
   },
   "repository": {
