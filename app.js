@@ -24,7 +24,7 @@ const print = () =>
 	figlet(
 		formatTime(currentSec),
 		{
-			font: font || "Roman",
+			font,
 			horizontalLayout: "full",
 			verticalLayout: "fitted",
 		},
@@ -32,7 +32,9 @@ const print = () =>
 			if (err) {
 				console.log(
 					err.code === "ENOENT"
-						? chalk.red("inncorrect font specified")
+						? chalk.red(
+								"inncorrect font specified,\nsee the correct ones http://patorjk.com/software/taag"
+						  )
 						: err
 				);
 				process.exit();
